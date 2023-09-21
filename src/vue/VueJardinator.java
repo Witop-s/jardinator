@@ -41,6 +41,39 @@ public class VueJardinator extends Vue {
 			}
 		});
 
+		Button choisirNavet = (Button) lookup("#action-choisir-navet");
+		choisirNavet.setOnAction(new EventHandler<ActionEvent>()
+		{
+			@Override
+			public void handle(ActionEvent e)
+			{
+				Logger.logMsg(Logger.INFO, "Bouton Choisir Navet activé");
+				controleur.notifierChoixSemis(Legume.LEGUME.NAVET);
+			}
+		});
+
+		Button choisirChou = (Button) lookup("#action-choisir-chou");
+		choisirChou.setOnAction(new EventHandler<ActionEvent>()
+		{
+			@Override
+			public void handle(ActionEvent e)
+			{
+				Logger.logMsg(Logger.INFO, "Bouton Choisir Chou activé");
+				controleur.notifierChoixSemis(Legume.LEGUME.CHOU);
+			}
+		});
+
+		Button choisirOignon = (Button) lookup("#action-choisir-oignon");
+		choisirOignon.setOnAction(new EventHandler<ActionEvent>()
+		{
+			@Override
+			public void handle(ActionEvent e)
+			{
+				Logger.logMsg(Logger.INFO, "Bouton Choisir Oignon activé");
+				controleur.notifierChoixSemis(Legume.LEGUME.OIGNON);
+			}
+		});
+
 
 
 		Rectangle jardin = (Rectangle) lookup("#jardin-terre");
@@ -51,22 +84,21 @@ public class VueJardinator extends Vue {
 			{
 				Logger.logMsg(Logger.INFO, "Jardin cliqué");
 
-				ImageView legumePlante = new ImageView();
-				legumePlante.setImage(new Image("vue/decoration/semis/" + controleur.getLegumeChoisi().toString().toLowerCase() + ".png"));
-				legumePlante.preserveRatioProperty().set(true);
-				legumePlante.setFitHeight(100);
-				legumePlante.setFitWidth(50);
-
 				double x = clic.getX();
 				double y = clic.getY();
-				controleur.notifierClicJardin(x, y, legumePlante);
+				controleur.notifierClicJardin(x, y);
 
 			}
 		});
 
 	}
 
-	public void planterSemis(double x, double y, ImageView legumePlante) {
+	public void planterSemis(Legume.LEGUME legumeChoisi, double x, double y) {
+		ImageView legumePlante = new ImageView();
+		legumePlante.setImage(new Image("vue/decoration/semis/" + legumeChoisi.toString().toLowerCase() + ".png"));
+		legumePlante.preserveRatioProperty().set(true);
+		legumePlante.setFitHeight(100);
+		legumePlante.setFitWidth(50);
 		// add the image to the pane
 		AnchorPane cloture = (AnchorPane) lookup("#jardin-cloture");
 		// place the center of the image to the center of the pane

@@ -29,7 +29,7 @@ public class ControleurJardinator extends Controleur{
 		return this.legumeChoisi;
 	}
 
-	public void notifierClicJardin(double x, double y, ImageView legume) {
-		VueJardinator.getInstance().planterSemis(x, y, legume);
+	public void notifierClicJardin(double x, double y) {
+		VueJardinator.getInstance().planterSemis(this.legumeChoisi, x, y);
 	}
 }
