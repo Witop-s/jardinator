@@ -57,19 +57,21 @@ public class VueJardinator extends Vue {
 				legumePlante.setFitHeight(100);
 				legumePlante.setFitWidth(50);
 
-				planterSemis(clic, legumePlante);
+				double x = clic.getX();
+				double y = clic.getY();
+				controleur.notifierClicJardin(x, y, legumePlante);
 
 			}
 		});
 
 	}
 
-	private void planterSemis(MouseEvent clic, ImageView legumePlante) {
+	public void planterSemis(double x, double y, ImageView legumePlante) {
 		// add the image to the pane
 		AnchorPane cloture = (AnchorPane) lookup("#jardin-cloture");
 		// place the center of the image to the center of the pane
-		legumePlante.setX(clic.getX() - legumePlante.getFitWidth() / 3.5);
-		legumePlante.setY(clic.getY() - legumePlante.getFitHeight() / 2);
+		legumePlante.setX(x - legumePlante.getFitWidth() / 3.5);
+		legumePlante.setY(y - legumePlante.getFitHeight() / 2);
 		cloture.getChildren().add(legumePlante);
 	}
 }

@@ -3,7 +3,9 @@ package controleur;
 import com.sun.media.jfxmedia.logging.Logger;
 
 import architecture.Controleur;
+import javafx.scene.image.ImageView;
 import modele.Legume;
+import vue.VueJardinator;
 
 public class ControleurJardinator extends Controleur{
 
@@ -25,5 +27,9 @@ public class ControleurJardinator extends Controleur{
 
 	public Object getLegumeChoisi() {
 		return this.legumeChoisi;
+	}
+
+	public void notifierClicJardin(double x, double y, ImageView legume) {
+		VueJardinator.getInstance().planterSemis(x, y, legume);
 	}
 }
