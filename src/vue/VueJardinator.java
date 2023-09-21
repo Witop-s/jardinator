@@ -6,6 +6,12 @@ import controleur.ControleurJardinator;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.shape.Rectangle;
+import modele.Legume;
 
 public class VueJardinator extends Vue {
 
@@ -31,21 +37,27 @@ public class VueJardinator extends Vue {
 			public void handle(ActionEvent e)
 			{
 				Logger.logMsg(Logger.INFO, "Bouton Choisir Carotte activé");
-				//controleur.notifierEvenement(ActionNavigation.CHOISIR_CAROTTE);
+				controleur.notifierChoixSemis(Legume.LEGUME.CAROTTE);
 			}
 		});
 
-		/*
-		Button actionCalculatrice = (Button) lookup("#action-calculatrice");
-		actionCalculatrice.setOnAction(new EventHandler<ActionEvent>() 
+
+
+		Rectangle jardin = (Rectangle) lookup("#jardin-terre");
+		jardin.setOnMouseClicked(new EventHandler<MouseEvent>()
 		{
-            @Override public void handle(ActionEvent e) 
-            {
-            	Logger.logMsg(Logger.INFO, "Bouton Calculatrice activé");
-            	controleur.notifierEvenement(ActionNavigation.CALCULATRICE);
-            }
-        });
-		*/
+			@Override
+			public void handle(MouseEvent arg0)
+			{
+				Logger.logMsg(Logger.INFO, "Jardin cliqué");
+
+				ImageView legumePlante = new ImageView();
+				legumePlante.setImage(new Image("vue/decoration/semis/carotte.png"));
+				AnchorPane cloture = (AnchorPane) lookup("#jardin-cloture");
+				cloture.getChildren().add(legumePlante);
+
+			}
+		});
 
 	}
 }

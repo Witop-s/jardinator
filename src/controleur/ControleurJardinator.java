@@ -7,7 +7,7 @@ import modele.Legume;
 
 public class ControleurJardinator extends Controleur{
 
-	private Legume legumeChoisi = new Legume();
+	private Legume.LEGUME legumeChoisi;
 
 	public ControleurJardinator()
 	{
@@ -19,4 +19,7 @@ public class ControleurJardinator extends Controleur{
 		
 	}
 
+	public void notifierChoixSemis(Legume.LEGUME legume) {
+		this.legumeChoisi = legume;
+	}
 }
