@@ -22,4 +22,8 @@ public class ControleurJardinator extends Controleur{
 	public void notifierChoixSemis(Legume.LEGUME legume) {
 		this.legumeChoisi = legume;
 	}
+
+	public Object getLegumeChoisi() {
+		return this.legumeChoisi;
+	}
 }

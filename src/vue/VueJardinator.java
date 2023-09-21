@@ -47,17 +47,29 @@ public class VueJardinator extends Vue {
 		jardin.setOnMouseClicked(new EventHandler<MouseEvent>()
 		{
 			@Override
-			public void handle(MouseEvent arg0)
+			public void handle(MouseEvent clic)
 			{
 				Logger.logMsg(Logger.INFO, "Jardin cliqué");
 
 				ImageView legumePlante = new ImageView();
-				legumePlante.setImage(new Image("vue/decoration/semis/carotte.png"));
-				AnchorPane cloture = (AnchorPane) lookup("#jardin-cloture");
-				cloture.getChildren().add(legumePlante);
+				legumePlante.setImage(new Image("vue/decoration/semis/" + controleur.getLegumeChoisi().toString().toLowerCase() + ".png"));
+				legumePlante.preserveRatioProperty().set(true);
+				legumePlante.setFitHeight(100);
+				legumePlante.setFitWidth(50);
+
+				planterSemis(clic, legumePlante);
 
 			}
 		});
 
+	}
+
+	private void planterSemis(MouseEvent clic, ImageView legumePlante) {
+		// add the image to the pane
+		AnchorPane cloture = (AnchorPane) lookup("#jardin-cloture");
+		// place the center of the image to the center of the pane
+		legumePlante.setX(clic.getX() - legumePlante.getFitWidth() / 3.5);
+		legumePlante.setY(clic.getY() - legumePlante.getFitHeight() / 2);
+		cloture.getChildren().add(legumePlante);
 	}
 }
