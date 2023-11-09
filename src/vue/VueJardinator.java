@@ -1,7 +1,7 @@
 package vue;
-import com.sun.media.jfxmedia.logging.Logger;
 
 import architecture.Vue;
+import com.sun.media.jfxmedia.logging.Logger;
 import controleur.ControleurJardinator;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -11,7 +11,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
+import modele.BadgeMatelot;
 import modele.Legume;
+
+import static modele.BadgeMatelot.DAUPHIN_TYPE;
+import static modele.BadgeMatelot.VAGUES_TYPE;
+import static modele.BadgeMatelot.ECUSSON_TYPE;
 
 public class VueJardinator extends Vue {
 
@@ -24,6 +29,8 @@ public class VueJardinator extends Vue {
 		super("jardinator.fxml", VueJardinator.class, 1294,743);
 		super.controleur = this.controleur = new ControleurJardinator();
 		Logger.logMsg(Logger.INFO, "new VueJardinator()");
+
+		testEcusson();
 	}
 		
 	public void activerControles()
@@ -105,5 +112,17 @@ public class VueJardinator extends Vue {
 		legumePlante.setX(x - legumePlante.getFitWidth() / 3.5);
 		legumePlante.setY(y - legumePlante.getFitHeight() / 2);
 		cloture.getChildren().add(legumePlante);
+	}
+
+	public void testEcusson() {
+		// Créer un écusson custom
+		BadgeMatelot composant = new BadgeMatelot();
+		composant.colorer("blue");
+		composant.afficherTexte("Faire face");
+		composant.afficherDauphin(DAUPHIN_TYPE.ROSE);
+		composant.afficherVagues(VAGUES_TYPE.MOYENNE);
+		composant.afficherEcusson(ECUSSON_TYPE.ARMOIRIE);
+		AnchorPane espace = (AnchorPane)lookup("#jardin-cloture");
+		espace.getChildren().add(composant);
 	}
 }

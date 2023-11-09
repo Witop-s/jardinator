@@ -71,14 +71,6 @@
       </VBox>
       <AnchorPane id="espace-travail" layoutX="76.0" layoutY="92.0" prefHeight="651.0" prefWidth="1218.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="76.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="92.0">
          <children>
-            <AnchorPane id="actions" layoutX="21.0" layoutY="23.0" prefHeight="119.0" prefWidth="462.0">
-               <children>
-                  <Button layoutX="20.0" layoutY="10.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="201.0" text="RECOMMENCER" textOverrun="CLIP" />
-                  <Button layoutX="20.0" layoutY="66.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="201.0" text="UNDO" textOverrun="CLIP" />
-                  <Button layoutX="237.0" layoutY="10.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="201.0" text="RANDOMISER" textOverrun="CLIP" />
-                  <Button layoutX="237.0" layoutY="66.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="201.0" text="REDO" textOverrun="CLIP" />
-               </children>
-            </AnchorPane>
             <Pane layoutX="6.0" layoutY="150.0" prefHeight="501.0" prefWidth="1207.0">
                <children>
                   <Pane id="semis" layoutX="15.0" layoutY="11.0" prefHeight="468.0" prefWidth="462.0" />
@@ -177,16 +169,11 @@
                   </AnchorPane>
                </children>
             </Pane>
-            <ImageView fitHeight="141.0" fitWidth="574.0" layoutX="568.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@decoration/ruban-vert.png" />
-               </image>
-            </ImageView>
          </children>
       </AnchorPane>
       <Pane id="entete" layoutX="-6.0" layoutY="-7.0" prefHeight="98.0" prefWidth="1301.0" AnchorPane.leftAnchor="-6.0" AnchorPane.rightAnchor="-1.0">
          <children>
-            <Label layoutX="429.0" layoutY="12.0" prefHeight="72.0" prefWidth="431.0" text="JARDINATOR" textFill="#fff7f7">
+            <Label layoutX="379.0" layoutY="12.0" prefHeight="103.0" prefWidth="574.0" text="NOT JARDINATOR" textFill="#fff7f7">
                <font>
                   <Font name="FreeMono" size="70.0" />
                </font>
