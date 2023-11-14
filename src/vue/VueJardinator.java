@@ -121,7 +121,7 @@ public class VueJardinator extends Vue {
 		composant.afficherVagues(VAGUES_TYPE.GRANDE);
 		composant.afficherDauphin(DAUPHIN_TYPE.ROSE);
 		composant.afficherTexte("'me souviens");
-		composant.afficherEcusson(ECUSSON_TYPE.ARMOIRIE);
+		composant.afficherEcusson(ECUSSON_TYPE.BADGE);
 
 		AnchorPane espace = (AnchorPane) lookup("#jardin-cloture");
 		composant.setLayoutX(x);

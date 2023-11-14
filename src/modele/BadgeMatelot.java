@@ -61,9 +61,16 @@ public class BadgeMatelot extends AnchorPane {
         this.getChildren().add(vagues);
     }
 
-    public enum ECUSSON_TYPE{ARMOIRIE};
+    public enum ECUSSON_TYPE{ETOILE, BADGE, FIRST};
     public void afficherEcusson(ECUSSON_TYPE type) {
         ImageView ecusson = new ImageView();
+
+        switch (type) {
+            case ETOILE -> ecusson.setImage(new Image("images/etoile.png"));
+            case BADGE -> ecusson.setImage(new Image("images/badge.png"));
+            case FIRST -> ecusson.setImage(new Image("images/first.png"));
+        }
+
         ecusson.setImage(new Image("images/badge.png"));
         ecusson.setLayoutX(0);
         ecusson.setLayoutY(0);
