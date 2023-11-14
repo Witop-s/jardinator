@@ -118,24 +118,15 @@ public class VueJardinator extends Vue {
 		// Créer un écusson custom
 		BadgeMatelot composant = new BadgeMatelot();
 		composant.colorer("blue");
-		composant.afficherTexte("Faire face");
+		composant.afficherVagues(VAGUES_TYPE.GRANDE);
 		composant.afficherDauphin(DAUPHIN_TYPE.ROSE);
-		//composant.afficherVagues(VAGUES_TYPE.MOYENNE);
-		//composant.afficherEcusson(ECUSSON_TYPE.ARMOIRIE);
-		System.out.println("composant = " + composant);
+		composant.afficherTexte("'me souviens");
+		composant.afficherEcusson(ECUSSON_TYPE.ARMOIRIE);
 
 		AnchorPane espace = (AnchorPane) lookup("#jardin-cloture");
 		composant.setLayoutX(x);
 		composant.setLayoutY(y);
 		espace.getChildren().add(composant);
-
-		// afficher les propriétés de l'écusson
-		System.out.println("composant.getStyle() = " + composant.getStyle());
-		System.out.println("composant.getStyleClass() = " + composant.getStyleClass());
-		System.out.println("composant.getLayoutX() = " + composant.getLayoutX());
-		System.out.println("composant.getLayoutY() = " + composant.getLayoutY());
-		System.out.println("composant.getWidth() = " + composant.getWidth());
-		System.out.println("composant.getHeight() = " + composant.getHeight());
 
 	}
 }
