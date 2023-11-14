@@ -29,8 +29,6 @@ public class VueJardinator extends Vue {
 		super("jardinator.fxml", VueJardinator.class, 1294,743);
 		super.controleur = this.controleur = new ControleurJardinator();
 		Logger.logMsg(Logger.INFO, "new VueJardinator()");
-
-		testEcusson();
 	}
 		
 	public void activerControles()
@@ -101,28 +99,43 @@ public class VueJardinator extends Vue {
 	}
 
 	public void planterSemis(Legume.LEGUME legumeChoisi, double x, double y) {
+		if (legumeChoisi == null) return;
 		ImageView legumePlante = new ImageView();
 		legumePlante.setImage(new Image("vue/decoration/semis/" + legumeChoisi.toString().toLowerCase() + ".png"));
 		legumePlante.preserveRatioProperty().set(true);
 		legumePlante.setFitHeight(100);
 		legumePlante.setFitWidth(50);
-		// add the image to the pane
+
 		AnchorPane cloture = (AnchorPane) lookup("#jardin-cloture");
-		// place the center of the image to the center of the pane
+
 		legumePlante.setX(x - legumePlante.getFitWidth() / 3.5);
 		legumePlante.setY(y - legumePlante.getFitHeight() / 2);
 		cloture.getChildren().add(legumePlante);
 	}
 
-	public void testEcusson() {
+	public void testEcusson(double x, double y) {
+		Logger.logMsg(Logger.INFO, "testEcusson()");
 		// Créer un écusson custom
 		BadgeMatelot composant = new BadgeMatelot();
 		composant.colorer("blue");
 		composant.afficherTexte("Faire face");
 		composant.afficherDauphin(DAUPHIN_TYPE.ROSE);
-		composant.afficherVagues(VAGUES_TYPE.MOYENNE);
-		composant.afficherEcusson(ECUSSON_TYPE.ARMOIRIE);
-		AnchorPane espace = (AnchorPane)lookup("#jardin-cloture");
+		//composant.afficherVagues(VAGUES_TYPE.MOYENNE);
+		//composant.afficherEcusson(ECUSSON_TYPE.ARMOIRIE);
+		System.out.println("composant = " + composant);
+
+		AnchorPane espace = (AnchorPane) lookup("#jardin-cloture");
+		composant.setLayoutX(x);
+		composant.setLayoutY(y);
 		espace.getChildren().add(composant);
+
+		// afficher les propriétés de l'écusson
+		System.out.println("composant.getStyle() = " + composant.getStyle());
+		System.out.println("composant.getStyleClass() = " + composant.getStyleClass());
+		System.out.println("composant.getLayoutX() = " + composant.getLayoutX());
+		System.out.println("composant.getLayoutY() = " + composant.getLayoutY());
+		System.out.println("composant.getWidth() = " + composant.getWidth());
+		System.out.println("composant.getHeight() = " + composant.getHeight());
+
 	}
 }
