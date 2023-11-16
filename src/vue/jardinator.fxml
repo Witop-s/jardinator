@@ -92,7 +92,7 @@
                            <graphic>
                               <ImageView fitHeight="109.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@decoration/semis/carotte.png" />
+                                    <Image url="@decoration/badges/prefab1.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -101,63 +101,39 @@
                            <graphic>
                               <ImageView fitHeight="101.0" fitWidth="95.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@decoration/semis/radis.png" />
+                                    <Image url="@decoration/badges/prefab2.PNG" />
                                  </image>
                               </ImageView>
                            </graphic>
                         </Button>
                         <Button id="action-choisir-chou" fx:id="actionChoisirChou" mnemonicParsing="false" prefHeight="140.0" prefWidth="106.0" textOverrun="CLIP" GridPane.columnIndex="2">
                            <graphic>
-                              <ImageView fitHeight="109.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@decoration/semis/chou.png" />
-                                 </image>
-                              </ImageView>
+                              <ImageView fitHeight="109.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true" />
                            </graphic>
                         </Button>
                         <Button id="action-choisir-oignon" fx:id="actionChoisirOignon" mnemonicParsing="false" prefHeight="119.0" prefWidth="108.0" textOverrun="CLIP" GridPane.columnIndex="3">
                            <graphic>
-                              <ImageView fitHeight="83.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@decoration/semis/oignon.png" />
-                                 </image>
-                              </ImageView>
+                              <ImageView fitHeight="83.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true" />
                            </graphic>
                         </Button>
                         <Button mnemonicParsing="false" prefHeight="119.0" prefWidth="108.0" textOverrun="CLIP" GridPane.rowIndex="1">
                            <graphic>
-                              <ImageView fitHeight="83.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@decoration/semis/chou-fleur.png" />
-                                 </image>
-                              </ImageView>
+                              <ImageView fitHeight="83.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true" />
                            </graphic>
                         </Button>
                         <Button mnemonicParsing="false" prefHeight="119.0" prefWidth="108.0" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <graphic>
-                              <ImageView fitHeight="83.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@decoration/semis/panais.png" />
-                                 </image>
-                              </ImageView>
+                              <ImageView fitHeight="83.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true" />
                            </graphic>
                         </Button>
                         <Button mnemonicParsing="false" prefHeight="119.0" prefWidth="108.0" textOverrun="CLIP" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <graphic>
-                              <ImageView fitHeight="83.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@decoration/semis/champignon.png" />
-                                 </image>
-                              </ImageView>
+                              <ImageView fitHeight="83.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true" />
                            </graphic>
                         </Button>
                         <Button mnemonicParsing="false" prefHeight="119.0" prefWidth="108.0" textOverrun="CLIP" GridPane.columnIndex="3" GridPane.rowIndex="1">
                            <graphic>
-                              <ImageView fitHeight="83.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@decoration/semis/laitue.png" />
-                                 </image>
-                              </ImageView>
+                              <ImageView fitHeight="83.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true" />
                            </graphic>
                         </Button>
                      </children>

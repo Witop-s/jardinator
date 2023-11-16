@@ -1,7 +1,5 @@
 package modele;
 
-import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -15,21 +13,23 @@ public class BadgeMatelot extends AnchorPane {
         this.setStyle("-fx-background-color: #ff0000;");
     }
 
-    public void colorer(String couleur) {
+    public BadgeMatelot colorer(String couleur) {
         this.setStyle("-fx-background-color: " + couleur + ";");
+        return this;
     }
 
-    public void afficherTexte(String texte) {
+    public BadgeMatelot afficherTexte(String texte) {
         Label motto = new Label();
         motto.setText(texte);
         motto.setStyle("-fx-font: 25px Tahoma;");
         motto.setLayoutY(motto.getLayoutY() + 35);
         motto.setLayoutX(motto.getLayoutX() + 25);
         this.getChildren().add(motto);
+        return this;
     }
 
     public enum DAUPHIN_TYPE{BLEU,ROSE};
-    public void afficherDauphin(DAUPHIN_TYPE type) {
+    public BadgeMatelot afficherDauphin(DAUPHIN_TYPE type) {
         ImageView dauphin = new ImageView();
 
         switch (type) {
@@ -42,10 +42,11 @@ public class BadgeMatelot extends AnchorPane {
         dauphin.setFitWidth(this.getPrefWidth()/2);
         centerObject(dauphin);
         this.getChildren().add(dauphin);
+        return this;
     }
 
     public enum VAGUES_TYPE{PETITE,MOYENNE,GRANDE};
-    public void afficherVagues(VAGUES_TYPE type) {
+    public BadgeMatelot afficherVagues(VAGUES_TYPE type) {
         ImageView vagues = new ImageView();
         vagues.setImage(new Image("images/wave.png"));
 
@@ -59,10 +60,11 @@ public class BadgeMatelot extends AnchorPane {
         vagues.setFitWidth(taille);
         centerObject(vagues);
         this.getChildren().add(vagues);
+        return this;
     }
 
     public enum ECUSSON_TYPE{ETOILE, BADGE, FIRST};
-    public void afficherEcusson(ECUSSON_TYPE type) {
+    public BadgeMatelot afficherEcusson(ECUSSON_TYPE type) {
         ImageView ecusson = new ImageView();
 
         switch (type) {
@@ -71,12 +73,18 @@ public class BadgeMatelot extends AnchorPane {
             case FIRST -> ecusson.setImage(new Image("images/first.png"));
         }
 
-        ecusson.setImage(new Image("images/badge.png"));
         ecusson.setLayoutX(0);
         ecusson.setLayoutY(0);
         ecusson.setFitHeight(this.getPrefHeight());
         ecusson.setFitWidth(this.getPrefWidth());
         this.getChildren().add(ecusson);
+        return this;
+    }
+
+    public BadgeMatelot surClick(double x, double y) {
+        this.setLayoutX(x - this.getPrefWidth() / 2);
+        this.setLayoutY(y - this.getPrefHeight() / 2);
+        return this;
     }
 
     private void centerImage(ImageView image) {
@@ -88,7 +96,7 @@ public class BadgeMatelot extends AnchorPane {
         // TODO implementer
     }
 
-    public void centerObject(Object object) {
+    private void centerObject(Object object) {
         if (object instanceof ImageView) centerImage((ImageView) object);
         if (object instanceof Label) centerText((Label) object);
     }

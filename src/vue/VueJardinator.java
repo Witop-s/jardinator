@@ -12,7 +12,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import modele.BadgeMatelot;
-import modele.Legume;
+import modele.Badge;
 
 import static modele.BadgeMatelot.DAUPHIN_TYPE;
 import static modele.BadgeMatelot.VAGUES_TYPE;
@@ -41,8 +41,8 @@ public class VueJardinator extends Vue {
 			@Override
 			public void handle(ActionEvent e)
 			{
-				Logger.logMsg(Logger.INFO, "Bouton Choisir Carotte activé");
-				controleur.notifierChoixSemis(Legume.LEGUME.CAROTTE);
+				Logger.logMsg(Logger.INFO, "Bouton Choisir Badge1 activé");
+				controleur.notifierChoixBadge(Badge.BADGE.MARIN1);
 			}
 		});
 
@@ -52,30 +52,8 @@ public class VueJardinator extends Vue {
 			@Override
 			public void handle(ActionEvent e)
 			{
-				Logger.logMsg(Logger.INFO, "Bouton Choisir Navet activé");
-				controleur.notifierChoixSemis(Legume.LEGUME.NAVET);
-			}
-		});
-
-		Button choisirChou = (Button) lookup("#action-choisir-chou");
-		choisirChou.setOnAction(new EventHandler<ActionEvent>()
-		{
-			@Override
-			public void handle(ActionEvent e)
-			{
-				Logger.logMsg(Logger.INFO, "Bouton Choisir Chou activé");
-				controleur.notifierChoixSemis(Legume.LEGUME.CHOU);
-			}
-		});
-
-		Button choisirOignon = (Button) lookup("#action-choisir-oignon");
-		choisirOignon.setOnAction(new EventHandler<ActionEvent>()
-		{
-			@Override
-			public void handle(ActionEvent e)
-			{
-				Logger.logMsg(Logger.INFO, "Bouton Choisir Oignon activé");
-				controleur.notifierChoixSemis(Legume.LEGUME.OIGNON);
+				Logger.logMsg(Logger.INFO, "Bouton Choisir Badge2 activé");
+				controleur.notifierChoixBadge(Badge.BADGE.MARIN2);
 			}
 		});
 
@@ -98,10 +76,10 @@ public class VueJardinator extends Vue {
 
 	}
 
-	public void planterSemis(Legume.LEGUME legumeChoisi, double x, double y) {
-		if (legumeChoisi == null) return;
+	public void planterSemis(Badge.BADGE BADGEChoisi, double x, double y) {
+		if (BADGEChoisi == null) return;
 		ImageView legumePlante = new ImageView();
-		legumePlante.setImage(new Image("vue/decoration/semis/" + legumeChoisi.toString().toLowerCase() + ".png"));
+		legumePlante.setImage(new Image("vue/decoration/semis/" + BADGEChoisi.toString().toLowerCase() + ".png"));
 		legumePlante.preserveRatioProperty().set(true);
 		legumePlante.setFitHeight(100);
 		legumePlante.setFitWidth(50);
@@ -117,16 +95,28 @@ public class VueJardinator extends Vue {
 		Logger.logMsg(Logger.INFO, "testEcusson()");
 		// Créer un écusson custom
 		BadgeMatelot composant = new BadgeMatelot();
-		composant.colorer("blue");
+
+		/*composant.colorer("blue");
 		composant.afficherVagues(VAGUES_TYPE.GRANDE);
 		composant.afficherDauphin(DAUPHIN_TYPE.ROSE);
 		composant.afficherTexte("'me souviens");
-		composant.afficherEcusson(ECUSSON_TYPE.BADGE);
+		composant.afficherEcusson(ECUSSON_TYPE.BADGE);*/
 
+		composant.colorer("blue").afficherVagues(VAGUES_TYPE.GRANDE).afficherDauphin(DAUPHIN_TYPE.ROSE).afficherTexte("'me souviens").afficherEcusson(ECUSSON_TYPE.BADGE).surClick(x, y);
 		AnchorPane espace = (AnchorPane) lookup("#jardin-cloture");
-		composant.setLayoutX(x);
-		composant.setLayoutY(y);
 		espace.getChildren().add(composant);
 
+	}
+
+	public void planterEcusson(Badge.BADGE badgeChoisi, double x, double y) {
+		if (badgeChoisi == null) return;
+		BadgeMatelot ecussonPlante = new BadgeMatelot();
+
+		switch (badgeChoisi) {
+			case MARIN1 -> ecussonPlante.colorer("blue").afficherVagues(VAGUES_TYPE.GRANDE).afficherDauphin(DAUPHIN_TYPE.ROSE).afficherTexte("'me souviens").afficherEcusson(ECUSSON_TYPE.BADGE).surClick(x, y);
+			case MARIN2 -> ecussonPlante.colorer("red").afficherVagues(VAGUES_TYPE.PETITE).afficherDauphin(DAUPHIN_TYPE.BLEU).afficherTexte("~~hello~~").afficherEcusson(ECUSSON_TYPE.ETOILE).surClick(x, y);
+		}
+		AnchorPane cloture = (AnchorPane) lookup("#jardin-cloture");
+		cloture.getChildren().add(ecussonPlante);
 	}
 }
